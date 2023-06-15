@@ -15,8 +15,17 @@ let categorized = [];
             else{ categorized[index].products.push(newProduct) }
         });
 
-        console.log(categorized );
-        
+
+       const res2 = await fetch("https://api.exchangerate.host/latest?base=USD");
+
+       const data = await res2.json();
+
+       const rate = data.rates.EGP;
+
+       categorized.forEach( c => { c.products.forEach( p=>{ p.price = p.price*rate } ) }  );
+
+       console.log(categorized);
+    
    }
     catch (error) {console.log(error)}
 };
