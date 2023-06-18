@@ -110,7 +110,7 @@ const server = http.createServer((req, res) => {
     }
     else{
         res.writeHead(404);
-        res.end("path not found, use /products to get or post product ");
+        res.end("path not found, use /products path to get or post products ");
     }
 
 
